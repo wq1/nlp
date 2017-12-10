@@ -26,6 +26,7 @@
     \title{
       %\protect\\ 
       \hspace{0.3zw}自然言語処理parser試作に関する報告書\addtocounter{footnote}{-1}\thanks{2017年12月1日 仮提出 ; 2017年12月6日 本提出}
+      \addtocounter{footnote}{-1}\thanks{2017年12月11日 更新}
     }
     \author{
       島田 歩
@@ -245,7 +246,7 @@
     \subsection{``Time flies like an arrow.''の解釈}
     \tab{tab:syntax_flies}の文法規則と\tab{tab:dict_flies}の単語辞書を用い
     ``Time flies like an arrow''を構文解析した結果，4つのS式（\fig{fig:result_flies}）が得られた．
-    \begin{table*}[htb]
+    \begin{table}[htb]
       \centering
       \caption{``Time flies like an arrow''の文法規則}
       \label{tab:syntax_flies}
@@ -261,8 +262,8 @@
         VP & $\to$ & VP & $+$ & PP \\
         PP & $\to$ & PREP & $+$ & NP \\ \hline
       \end{tabular}
-    \end{table*}
-    \begin{table*}[htb]
+    \end{table}
+    \begin{table}[htb]
       \centering
       \caption{``Time flies like an arrow''の単語辞書}
       \label{tab:dict_flies}
@@ -276,7 +277,7 @@
         an & $\to$ & DET \\
         arrow & $\to$ & NOUN \\ \hline
       \end{tabular}
-    \end{table*}
+    \end{table}
     \begin{figure*}[htpb]
       \centering
       %\resizebox{0.9\linewidth}{!}{
@@ -313,7 +314,7 @@
 
   \bibliography{mybib}
   %\printbibliography[heading=bibintoc, title=文献]
-  %\flushcolsend
+  \flushcolsend
 
   \onecolumn
   \appendix
