@@ -1,0 +1,6 @@
+       I     saw   a    girl  with  a    telescope  .  
+|      |     |     |    |     |     |    |          |  
+start  NOUN  VERB  DET  NOUN  PREP  DET  NOUN       end
+       the  child  runs  quickly  to    the  large  house  .  
+|      |    |      |     |        |     |    |      |      |  
+start  DET  NOUN   VERB  ADV      PREP  DET  ADJ    NOUN   end

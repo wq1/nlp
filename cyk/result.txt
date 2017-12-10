@@ -1,0 +1,42 @@
+(S36(NP9(DET1 "the")(NOUN2 "child"))(VP33(VPa11(VERB3 "runs")(ADV4 "quickly"))(NP26(PREP5 "to")(NP21(DET6 "the")(NP15(ADJ7 "large")(NOUN8 "house"))))))
+
+the  child  runs  quickly  to    the  large  house
+|    |      |     |        |     |    |      |    
+DET  NOUN   VERB  ADV      PREP  DET  ADJ    NOUN 
+
+(S28(NP1(NOUN1 "I"))(VP27(VERB2 "saw")(SS25(NP10(DET3 "a")(NOUN4 "girl"))(PP18(PREP5 "with")(NP13(DET6 "a")(NOUN7 "telescope"))))))
+
+I     saw   a    girl  with  a    telescope
+|     |     |    |     |     |    |        
+NOUN  VERB  DET  NOUN  PREP  DET  NOUN     
+
+(S28(NP1(NOUN1 "I"))(VP27(VP15(VERB2 "saw")(NP10(DET3 "a")(NOUN4 "girl")))(PP18(PREP5 "with")(NP13(DET6 "a")(NOUN7 "telescope")))))
+
+I     saw   a    girl  with  a    telescope
+|     |     |    |     |     |    |        
+NOUN  VERB  DET  NOUN  PREP  DET  NOUN     
+
+(S15(NP1(NOUN1 "Time"))(VP14(VP2(VERB2 "flies"))(PP12(PREP3 "like")(NP9(DET4 "an")(NOUN5 "arrow")))))
+
+Time  flies  like  an   arrow
+|     |      |     |    |    
+NOUN  VERB   PREP  DET  NOUN 
+
+(S15(NP6(NOUN1 "Time")(NP2(NOUN2 "flies")))(VP12(VERB3 "like")(NP9(DET4 "an")(NOUN5 "arrow"))))
+
+Time  flies  like  an   arrow
+|     |      |     |    |    
+NOUN  NOUN   VERB  DET  NOUN 
+
+(S15(VP15(VERB1 "Time")(NP14(NP2(NOUN2 "flies"))(PP12(PREP3 "like")(NP9(DET4 "an")(NOUN5 "arrow"))))))
+
+Time  flies  like  an   arrow
+|     |      |     |    |    
+VERB  NOUN   PREP  DET  NOUN 
+
+(S15(VP15(VP6(VERB1 "Time")(NP2(NOUN2 "flies")))(PP12(PREP3 "like")(NP9(DET4 "an")(NOUN5 "arrow")))))
+
+Time  flies  like  an   arrow
+|     |      |     |    |    
+VERB  NOUN   PREP  DET  NOUN 
+
