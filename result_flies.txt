@@ -1,0 +1,11 @@
+(S15(NP1(NOUN1 "Time"))(VP14(VP2(VERB2 "flies"))
+  (PP12(PREP3 "like")(NP9(DET4 "an")(NOUN5 "arrow")))))
+
+(S15(NP6(NOUN1 "Time")(NP2(NOUN2 "flies")))
+  (VP12(VERB3 "like")(NP9(DET4 "an")(NOUN5 "arrow"))))
+
+(S15(VP15(VERB1 "Time")(NP14(NP2(NOUN2 "flies"))
+  (PP12(PREP3 "like")(NP9(DET4 "an")(NOUN5 "arrow"))))))
+
+(S15(VP15(VP6(VERB1 "Time")(NP2(NOUN2 "flies")))
+  (PP12(PREP3 "like")(NP9(DET4 "an")(NOUN5 "arrow")))))

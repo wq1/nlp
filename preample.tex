@@ -1,0 +1,55 @@
+\usepackage[dvipdfm, margin=20mm]{geometry}
+\usepackage{flushend}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{}
+\chead{\small 島田 : 自然言語処理parser試作に関する報告書}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+
+\usepackage{mathtools}
+\usepackage{siunitx}
+\sisetup{detect-all}
+\usepackage{url}
+\usepackage[normalem]{ulem}
+%\usepackage{censor}
+%\StopCensoring
+
+\usepackage{graphicx}
+\usepackage{subfig}
+\captionsetup{
+  format=hang,
+  labelsep=quad,
+  labelfont=bf,
+  font=small,
+}
+%\usepackage{here}
+\usepackage[monochrome]{xcolor}
+\usepackage{gnuplot-lua-tikz}
+
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+%\usepackage[T1]{fontenc}
+%\usepackage{lmodern}
+%\usepackage{libertine}
+
+\usepackage{docmute}
+\usepackage{titling}
+\usepackage[addtotoc]{abstract}
+%\usepackage[
+%  backend=biber,
+%  sorting=none,
+%]{biblatex}
+%\addbibresource{mybib.bib}
+\usepackage[super, sort&compress]{natbib}
+\bibpunct{}{)}{,}{s}{}{\textsuperscript{,}}
+\renewcommand{\bibnumfmt}[1]{#1)}
+\bibliographystyle{unsrt}
+\renewcommand{\refname}{参考文献}
+\makeatletter
+\def\thefootnote{\ifnum\c@footnote>\z@\leavevmode\lower.5ex\hbox{$\ast$}\@arabic\c@footnote\fi}
+\makeatother
+%\renewcommand{\thefootnote}{$\ast$\arabic{footnote}}
+\newcommand\fig[1]{\textbf{図\ref{#1}}}
+\newcommand\tab[1]{\textbf{表\ref{#1}}}
+\newcommand\refsec[1]{\textsf{\ref{#1}}}

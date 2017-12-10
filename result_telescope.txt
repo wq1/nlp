@@ -1,0 +1,2 @@
+(S28(NP1(NOUN1 "I"))(VP27(VP15(VERB2 "saw")(NP10(DET3 "a")(NOUN4 "girl")))
+  (PP18(PREP5 "with")(NP13(DET6 "a")(NOUN7 "telescope")))))
