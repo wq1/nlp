@@ -40,8 +40,6 @@ CELL* syntax_analyzer(const WORD *words, const SYNTAX *syntax) {
   CELL *cells = malloc(sizeof(CELL) * CELL_LENGTH);
 
   int index;
-  int i, j; // for loop
-  int k; // cells[index].type[k]
 
   // init cells
   for (index = 0; index < CELL_LENGTH; index++) {
@@ -49,33 +47,30 @@ CELL* syntax_analyzer(const WORD *words, const SYNTAX *syntax) {
     cells[index].index = index;
   }
 
-  // (cells[index].word <= words[index].word)
-  for (index = 0; index < WORDAGE; index++) {
-    k = 0;
-    cells[index].word = words[index].word;
-    for (i = 0; words[index].type[i] != DUMMY.type[0]; i++) {
-      if (k >= MAX_TYPE) {
-        fprintf(stderr, "\x1b[31m[WARN]: cells[%d].type[MAX_TYPE] overflow (the result may be wrong)\x1b[39m\n", index);
-        break;
-      }
-      cells[index].type[k].index = k;
-      cells[index].type[k].type = words[index].type[i];
-      cells[index].type[k].cell = &cells[index];
-      fprintf(stderr, "[DEBUG]: %s%d \"%s\"\n", cells[index].type[k].type, cells[index].index + 1, cells[index].word);
-      k++;
-    }
-  }
-
+  int i, j; // for loop
+  int k; // cells[index].type[k]
   int p, q, a; // comparison cells[a] (x, y) = (p, q)
   int u, v, b; // comparison cells[b] (x, y) = (u, v)
   int l, m, n; // for loop
   int column = 0;
   index = 0;
   for (i = 0, j = column; i < WORDAGE && j < WORDAGE; /* */) {
-    // blank type[k] search
     k = 0;
-    while (cells[index].type[k].type != DUMMY_CELL.type[k].type) {
-      k++;
+
+    // (cells[index].word <= words[index].word)
+    if (index < WORDAGE) {
+      cells[index].word = words[index].word;
+      for (i = 0; words[index].type[i] != DUMMY.type[0]; i++) {
+        if (k >= MAX_TYPE) {
+          fprintf(stderr, "\x1b[31m[WARN]: cells[%d].type[MAX_TYPE] overflow (the result may be wrong)\x1b[39m\n", index);
+          break;
+        }
+        cells[index].type[k].index = k;
+        cells[index].type[k].type = words[index].type[i];
+        cells[index].type[k].cell = &cells[index];
+        fprintf(stderr, "[DEBUG]: %s%d \"%s\"\n", cells[index].type[k].type, cells[index].index + 1, cells[index].word);
+        k++;
+      }
     }
 
     // ex.) S -> NP + VP; VP -> VP + NP
