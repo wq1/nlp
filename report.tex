@@ -450,4 +450,26 @@
     \caption{文脈自由文法のプログラムの動作風景}
     \label{fig:network}
   \end{figure}
+
+    \subsection{インデント機能の使用}
+    S式出力用の関数\texttt{print\_sexps}はインデント機能を有している．
+    \texttt{main}関数内で
+    \begin{equation*}
+      \verb|print_sexps(&(cells[CELL_LENGTH - 1].type[i]), type_num, 0);|
+    \end{equation*}
+    と呼び出している部分の最後の引数を例えば
+    \begin{equation*}
+      \verb|print_sexps(&(cells[CELL_LENGTH - 1].type[i]), type_num, 4);|
+    \end{equation*}
+    とすれば4文字でのインデントが有効になり，簡易的に木構造を確認できる（\fig{fig:result_indent}）．
+
+    \begin{figure}[htpb]
+      \centering
+      %\resizebox{0.9\linewidth}{!}{
+      \fbox{
+        \BVerbatimInput{result_indent.txt}
+      }
+      \caption{インデント機能を有効にした場合の出力}
+      \label{fig:result_indent}
+    \end{figure}
 \end{document}
