@@ -18,6 +18,7 @@
   breaklines=true,
 }
 \usepackage{fancyvrb}
+\usepackage{tikz-qtree}
 
 \begin{document}
   \thispagestyle{empty}
@@ -122,7 +123,7 @@
       \end{table}
       \begin{table}[htb]
         \centering
-        \caption{``I saw a girl with a telescope''の単語辞書}
+        \caption{``I saw a girl with a telescope.''の単語辞書}
         \label{tab:dict_girl_network}
         \begin{tabular}{l c l} \hline
           I & $\to$ & NOUN (名詞) \\
@@ -136,7 +137,7 @@
       \end{table}
       \begin{table}[htb]
         \centering
-        \caption{``the child runs quickly to the large house''の単語辞書}
+        \caption{``the child runs quickly to the large house.''の単語辞書}
         \label{tab:dict_child_network}
         \begin{tabular}{l c l} \hline
           the & $\to$ & DET (冠詞) \\
@@ -186,7 +187,8 @@
 
       \subsubsection{プログラムによる解析}
       \tab{tab:syntax_child}の文法規則と\tab{tab:dict_child_network}の単語辞書を用い，
-      作成したプログラムで``the child runs quickly to the large house''をCYK法により構文解析した結果得られたS式を\fig{fig:result_cyk}に示す．
+      作成したプログラムで``the child runs quickly to the large house''をCYK法により構文解析した結果得られた構文木とS式をそれぞれ
+      \fig{fig:tree_child}と\fig{fig:result_cyk}に示す．
       \begin{table*}[htb]
         \centering
         \caption{``the child runs quickly to the large house''の文法規則}
@@ -205,9 +207,22 @@
           VPa (動詞句) & $\to$ & VERB (動詞) & $+$ & NP (名詞句) \\ \hline
         \end{tabular}
       \end{table*}
+      \begin{figure}[htpb]
+        \centering
+        \resizebox{0.95\linewidth}{!}{
+          \begin{tikzpicture}
+            \tikzset{frontier/.style={distance from root=180pt}}
+            \Tree [.S36 [.NP9 [.DET1 the ] [.NOUN2 child ] ] [.VP33 [.VPa11 [.VERB3 runs ] [.ADV4 quickly ] ]
+                  [.NP26 [.PREP5 to ] [.NP21 [.DET6 the ] [.NP15 [.ADJ7 large ] [.NOUN8 house ] ] ] ] ] ]
+          \end{tikzpicture}
+        }
+        \caption{``the child runs quickly to the large house''の構文木}
+        \label{fig:tree_child}      
+      \end{figure}
 
       さらに，\tab{tab:syntax_girl}の文法規則と\tab{tab:dict_girl_network}の単語辞書を用い，
-      ``I saw a girl with a telescope''を構文解析した結果得られたS式を\fig{fig:result_cyk}に示す．
+      ``I saw a girl with a telescope''を構文解析した結果得られた構文木とS式をそれぞれ
+      \fig{fig:tree_girl}と\fig{fig:result_cyk}に示す．
       \begin{figure*}[htpb]
         \centering
         %\resizebox{0.9\linewidth}{!}{
@@ -222,18 +237,43 @@
     \subsection{``I saw a girl with a telescope.''の2つの解釈}
     ``I saw a girl with a telescope.''には大きくわけて，以下の2つの意味（解釈）がある:
     \begin{itemize}
-      \item 私は望遠鏡を持った少女に会った．
-      \item 私は望遠鏡で少女を見た．
+      \item 私は望遠鏡を持った少女に会った．（\fig{fig:tree_girl}）
+      \item 私は望遠鏡で少女を見た．（\fig{fig:tree_telescope}）
     \end{itemize}
     今回の実験の結果得られた解釈は前者だが，\tab{tab:syntax_girl}の文法規則に\(\text{VP} \to \text{VP} + \text{PP}\)を追加することにより，
-    後者の解釈となるS式が得られる（\fig{fig:result_telescope}）．
+    後者の解釈となる構文木（\fig{fig:tree_telescope}）とS式（\fig{fig:result_telescope}）が得られる．
+    \begin{figure*}[htpb]
+      \centering
+      \subfloat[私は望遠鏡を持った少女に会った．]{
+        \label{fig:tree_girl}
+        \resizebox{0.45\linewidth}{!}{
+          \begin{tikzpicture}
+            \tikzset{frontier/.style={distance from root=180pt}}
+            \Tree [.$\mathrm{S}_{28}$ [.$\mathrm{NP}_{1}$ [.$\mathrm{NOUN}_{1}$ I ] ] [.$\mathrm{VP}_{27}$ [.$\mathrm{VERB}_{2}$ saw ]
+            [.$\mathrm{SS}_{25}$ [.$\mathrm{NP}_{10}$ [.$\mathrm{DET}_{3}$ a ] [.$\mathrm{NOUN}_{4}$ girl ] ]
+            [.$\mathrm{PP}_{18}$ [.$\mathrm{PREP}_{5}$ with ] [.$\mathrm{NP}_{13}$ [.$\mathrm{DET}_{6}$ a ] [.$\mathrm{NOUN}_{7}$ telescope ] ] ] ] ] ]
+          \end{tikzpicture}
+        }
+      }
+      \subfloat[私は望遠鏡で少女を見た．]{
+        \label{fig:tree_telescope}
+        \resizebox{0.45\linewidth}{!}{
+          \begin{tikzpicture}
+            \tikzset{frontier/.style={distance from root=180pt}}
+            \Tree [.S28 [.NP1 [.NOUN1 I ] ] [.VP27 [.VP15 [.VERB2 saw ] [.NP10 [.DET3 a ] [.NOUN4 girl ] ] ]
+                  [.PP18 [.PREP5 with ] [.NP13 [.DET6 a ] [.NOUN7 telescope ] ] ] ] ]
+          \end{tikzpicture}
+        }
+      }
+      \caption{``I saw a girl with a telescope''の構文木}
+    \end{figure*}
     \begin{figure*}[htpb]
       \centering
       %\resizebox{0.9\linewidth}{!}{
       \fbox{
         \BVerbatimInput{result_telescope.txt}
       }
-      \caption{``私は望遠鏡で少女を見た．''という解釈になるS式（印刷の関係上，出力は改行している．）}
+      \caption{私は望遠鏡で少女を見た（\fig{fig:tree_telescope}）という解釈になるS式（印刷の関係上，出力は改行している．）}
       \label{fig:result_telescope}
     \end{figure*}
 
@@ -245,7 +285,16 @@
 
     \subsection{``Time flies like an arrow.''の解釈}
     \tab{tab:syntax_flies}の文法規則と\tab{tab:dict_flies}の単語辞書を用い
-    ``Time flies like an arrow''を構文解析した結果，4つのS式（\fig{fig:result_flies}）が得られた．
+    ``Time flies like an arrow''を構文解析した結果，4つの構文木（\fig{fig:tree_flies}）とS式（\fig{fig:result_flies}）が得られた．
+    これらの解釈はそれぞれ以下である:
+    \begin{itemize}
+      \item 時は矢のように過ぎる． $\Rightarrow$ 光陰矢のごとし．（\fig{fig:tree_flies_1}）
+      \item time fly（トキバエ？）たちは矢を好む．（\fig{fig:tree_flies_2}）
+      \item ``矢のようなハエ''たちの速度を測定せよ．（\fig{fig:tree_flies_3}）
+      \item 矢（の速度を測定するとき）のように，ハエたちの速度を測定せよ．（\fig{fig:tree_flies_4}）
+    \end{itemize}
+    さらに，``Time''が雑誌の名前である可能性も考慮すると，さらに別の解釈も可能である．
+
     \begin{table}[htb]
       \centering
       \caption{``Time flies like an arrow''の文法規則}
@@ -280,6 +329,51 @@
     \end{table}
     \begin{figure*}[htpb]
       \centering
+      \subfloat[光陰矢のごとし．]{
+        \label{fig:tree_flies_1}
+        %\resizebox{0.45\linewidth}{!}{
+          \begin{tikzpicture}
+            \tikzset{frontier/.style={distance from root=150pt}}
+            \Tree [.S15 [.NP1 [.NOUN1 Time ] ] [.VP14 [.VP2 [.VERB2 flies ] ]
+                  [.PP12 [.PREP3 like ] [.NP9 [.DET4 an ] [.NOUN5 arrow ] ] ] ] ]
+          \end{tikzpicture}
+        %}
+      }
+      \subfloat[time fly（トキバエ？）たちは矢を好む．]{
+        \label{fig:tree_flies_2}
+        %\resizebox{0.45\linewidth}{!}{
+          \begin{tikzpicture}
+            \tikzset{frontier/.style={distance from root=150pt}}
+            \Tree [.S15 [.NP6 [.NOUN1 Time ] [.NP2 [.NOUN2 flies ] ] ]
+                  [.VP12 [.VERB3 like ] [.NP9 [.DET4 an ] [.NOUN5 arrow ] ] ] ]
+          \end{tikzpicture}
+        %}
+      } \\
+      \subfloat[``矢のようなハエ''たちの速度を測定せよ．]{
+        \label{fig:tree_flies_3}
+        %\resizebox{0.45\linewidth}{!}{
+          \begin{tikzpicture}
+            \tikzset{frontier/.style={distance from root=180pt}}
+            \Tree [.S15 [.VP15 [.VERB1 Time ] [.NP14 [.NP2 [.NOUN2 flies ] ]
+                  [.PP12 [.PREP3 like ] [.NP9 [.DET4 an ] [.NOUN5 arrow ] ] ] ] ] ]
+          \end{tikzpicture}
+        %}
+      }
+      \subfloat[矢（の速度を測定するとき）のように，ハエたちの速度を測定せよ．]{
+        \label{fig:tree_flies_4}
+        %\resizebox{0.45\linewidth}{!}{
+          \begin{tikzpicture}
+            \tikzset{frontier/.style={distance from root=180pt}}
+            \Tree [.S15 [.VP15 [.VP6 [.VERB1 Time ] [.NP2 [.NOUN2 flies ] ] ]
+                  [.PP12 [.PREP3 like ] [.NP9 [.DET4 an ] [.NOUN5 arrow ] ] ] ] ]
+          \end{tikzpicture}
+        %}
+      }
+      \caption{``Time flies like an arrow''の構文木}
+      \label{fig:tree_flies}
+    \end{figure*}
+    \begin{figure*}[htpb]
+      \centering
       %\resizebox{0.9\linewidth}{!}{
       \fbox{
         \BVerbatimInput{result_flies.txt}
@@ -287,14 +381,6 @@
       \caption{``Time flies like an arrow''のS式（印刷の関係上，出力は改行している．）}
       \label{fig:result_flies}
     \end{figure*}
-    このS式の解釈はそれぞれ以下である:
-    \begin{itemize}
-      \item 時は矢のように過ぎる． $\Rightarrow$ 光陰矢のごとし．
-      \item time fly（トキバエ？）たちは矢を好む．
-      \item "矢のようなハエ"たちの速度を測定せよ．
-      \item 矢（の速度を測定するとき）のように，ハエたちの速度を測定せよ．
-    \end{itemize}
-    さらに，``Time''が雑誌の名前である可能性も考慮すると，さらに別の解釈も可能である．
 
     実際には，「光陰矢のごとし」以外の候補はいわゆる非文とみなせるが，候補の絞り込みには別の方法を用いる必要性が示唆される．
 
