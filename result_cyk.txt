@@ -1,5 +1,5 @@
 (S36(NP9(DET1 "the")(NOUN2 "child"))(VP33(VPa11(VERB3 "runs")(ADV4 "quickly"))
-  (NP26(PREP5 "to")(NP21(DET6 "the")(NP15(ADJ7 "large")(NOUN8 "house"))))))
+    (NP26(PREP5 "to")(NP21(DET6 "the")(NP15(ADJ7 "large")(NOUN8 "house"))))))
 
 (S28(NP1(NOUN1 "I"))(VP27(VERB2 "saw")(SS25(NP10(DET3 "a")(NOUN4 "girl"))
-  (PP18(PREP5 "with")(NP13(DET6 "a")(NOUN7 "telescope"))))))
+    (PP18(PREP5 "with")(NP13(DET6 "a")(NOUN7 "telescope"))))))
