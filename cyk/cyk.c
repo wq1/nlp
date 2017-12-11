@@ -53,7 +53,7 @@ CELL* syntax_analyzer(const WORD *words, const SYNTAX *syntax) {
   for (index = 0; index < WORDAGE; index++) {
     k = 0;
     cells[index].word = words[index].word;
-    for (i = 0; words[index].type[i] != DUMMY.type[i]; i++) {
+    for (i = 0; words[index].type[i] != DUMMY.type[0]; i++) {
       if (k >= MAX_TYPE) {
         fprintf(stderr, "\x1b[31m[WARN]: cells[%d].type[MAX_TYPE] overflow (the result may be wrong)\x1b[39m\n", index);
         break;

@@ -12,9 +12,12 @@
 #define MAX_TYPE 10
 // parser can find up to MAX_TYPE trees
 
+#define DEFAULT_CAPACITY_OF_ARRAY 16
+
 typedef struct {
   char *word;
-  char *type[MAX_TYPE + 1];
+  char **type;
+  bool type_is_new_array;
 } WORD;
 
 typedef struct { // ex.) NP -> DET + NOUN

@@ -38,10 +38,12 @@ WORD* build_dict(const char *srcfile) {
   }
 
   WORD *dict = malloc(sizeof(WORD) * (entry + 1));
+  char **type = malloc(sizeof(char *) * entry);
   int n[4] = {0};
   int i = 0;
   for (ptr = bin; sscanf(ptr, " %n%*[^,]%n,%n%*s%n", &n[0], &n[1], &n[2], &n[3]) != EOF; ptr += n[3] + 1) {
     // fprintf(stderr, "%d, %d, %d, %d\n", n[0], n[1], n[2], n[3]);
+    dict[i].type = &type[i];
     dict[i].word = ptr + n[0];
     dict[i].type[0] = ptr + n[2];
     i++;
@@ -49,6 +51,7 @@ WORD* build_dict(const char *srcfile) {
     ptr[n[3]] = '\0';
   }
   dict[i] = DUMMY;
+  dict[0].type_is_new_array = true;
 
   fclose(fp);
   fprintf(stderr, " done.\n");

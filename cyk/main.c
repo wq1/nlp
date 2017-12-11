@@ -23,9 +23,7 @@ int main(int argc, char **argv) {
   // init global variables
   int i;
   DUMMY.word = "";
-  for (i = 0; i <= MAX_TYPE; i++) {
-    DUMMY.type[i] = "?";
-  }
+  DUMMY.type = (char **)"";
   DUMMY_SYNTAX.lhs = "";
   DUMMY_SYNTAX.rhs1 = "";
   DUMMY_SYNTAX.rhs2 = "";
@@ -83,6 +81,12 @@ int main(int argc, char **argv) {
 
     free(cells);
     free(type_num);
+    for (i = 0; words[i].word != DUMMY.word; i++) {
+      if (words[i].type_is_new_array == true) {
+        fprintf(stderr, "[DEBUG]: %s\n", words[i].word);
+        free(words[i].type);
+      }
+    }
     free(words);
   }
 
@@ -95,6 +99,7 @@ int main(int argc, char **argv) {
   free(syntax[0].lhs);
   free(syntax);
   free(dict[0].word);
+  free(dict[0].type);
   free(dict);
   */
 
