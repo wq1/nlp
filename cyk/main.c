@@ -83,7 +83,6 @@ int main(int argc, char **argv) {
     free(type_num);
     for (i = 0; words[i].word != DUMMY.word; i++) {
       if (words[i].type_is_new_array == true) {
-        fprintf(stderr, "[DEBUG]: %s\n", words[i].word);
         free(words[i].type);
       }
     }
