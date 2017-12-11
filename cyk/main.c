@@ -23,7 +23,7 @@ int main(int argc, char **argv) {
   // init global variables
   int i;
   DUMMY.word = "";
-  DUMMY.type = (char **)"";
+  DUMMY.type = (char **)"?";
   DUMMY_SYNTAX.lhs = "";
   DUMMY_SYNTAX.rhs1 = "";
   DUMMY_SYNTAX.rhs2 = "";
