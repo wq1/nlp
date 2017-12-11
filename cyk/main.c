@@ -61,10 +61,10 @@ int main(int argc, char **argv) {
         for (i = 0; cells[CELL_LENGTH - 1].type[i].type != DUMMY_CELL.type[i].type; i++) {
           if (strcmp(cells[CELL_LENGTH - 1].type[i].type, "S") == 0) {
             sentenceOK = true;
-            print_sexps(&(cells[CELL_LENGTH - 1].type[i]), type_num);
-            printf("\n");
-            print_words(words, max_line_length, type_num);
-            printf("\n");
+            print_sexps(&(cells[CELL_LENGTH - 1].type[i]), type_num, 0);
+            // printf("\n");
+            // print_words(words, max_line_length, type_num);
+            // printf("\n");
           }
         }
         if (sentenceOK == true) {

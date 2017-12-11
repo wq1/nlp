@@ -1,11 +1,20 @@
 #include "global.h"
 
 
-void _print_sexps(const TYPE *type, int *word_num, int *type_num) {
+void _print_sexps(const TYPE *type, int *word_num, int *type_num, int indent, int depth) {
   if (type->type == DUMMY_CELL.type[type->index].type) {
     return;
   }
 
+  if (indent > 0) {
+    int i, j;
+    printf("\n");
+    for (i = 0; i < depth; i++) {
+      for (j = 0; j < indent; j++) {
+        printf(" ");
+      }
+    }
+  }
   printf("(%s%d", type->type, (type->cell)->index + 1);
 
   if ((type->cell)->word != DUMMY_CELL.word) {
@@ -18,17 +27,17 @@ void _print_sexps(const TYPE *type, int *word_num, int *type_num) {
     }
   }
 
-  _print_sexps(type->prev_left_type, word_num, type_num);
-  _print_sexps(type->prev_right_type, word_num, type_num);
+  _print_sexps(type->prev_left_type, word_num, type_num, indent, depth + 1);
+  _print_sexps(type->prev_right_type, word_num, type_num, indent, depth + 1);
   printf(")");
 
   return;
 }
 
 
-void print_sexps(const TYPE *type, int *type_num) {
+void print_sexps(const TYPE *type, int *type_num, int indent) {
   int word_num = 0;
-  _print_sexps(type, &word_num, type_num);
+  _print_sexps(type, &word_num, type_num, indent, 0);
   printf("\n");
   return;
 }

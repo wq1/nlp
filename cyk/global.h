@@ -49,6 +49,6 @@ WORD* sentence_splitter(char *sentence);
 WORD* build_dict(const char *srcfile);
 SYNTAX* build_syntax(const char *srcfile);
 void print_words(const WORD *words, const size_t buf_size, const int *type_num);
-void print_sexps(const TYPE *type, int *type_num);
+void print_sexps(const TYPE *type, int *type_num, int indent);
 
 #endif
