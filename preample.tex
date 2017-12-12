@@ -48,8 +48,9 @@
 \renewcommand{\refname}{参考文献}
 \makeatletter
 \def\thefootnote{\ifnum\c@footnote>\z@\leavevmode\lower.5ex\hbox{$\ast$}\@arabic\c@footnote\fi}
+\def\figureautorefname~#1\null{\bf 図~#1\@gobble}
+\def\subfigureautorefname~#1\null{\bf 図~#1\@gobble}
+\def\tableautorefname~#1\null{\bf 表~#1\@gobble}
+\def\sectionautorefname~#1\null{第#1章}
 \makeatother
 %\renewcommand{\thefootnote}{$\ast$\arabic{footnote}}
-\newcommand\fig[1]{\textbf{図\ref{#1}}}
-\newcommand\tab[1]{\textbf{表\ref{#1}}}
-\newcommand\refsec[1]{\textsf{\ref{#1}}}

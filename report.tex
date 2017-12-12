@@ -49,16 +49,16 @@
   \section{始めに}\label{hajimeni}
   本実験報告書は以下の章立てで構成されている:
   \begin{description}
-    \item[第\ref{hajimeni}章] 始めに
-    \item[第\ref{mokuteki}章] 実験の目的
-    \item[第\ref{gaiyou}章] 自然言語処理の概要
-    \item[第\ref{kekka}章] 実験の結果
-    \item[第\ref{kousatu}章] 考察
-    \item[第\ref{matome}章] まとめ
+    \item[\autoref{hajimeni}] 始めに
+    \item[\autoref{mokuteki}] 実験の目的
+    \item[\autoref{gaiyou}] 自然言語処理の概要
+    \item[\autoref{kekka}] 実験の結果
+    \item[\autoref{kousatu}] 考察
+    \item[\autoref{matome}] まとめ
   \end{description}
   また，巻末には，参考文献リストと付録および手書きの図がある．
 
-  特に，第\ref{kousatu}章の考察では，文の解釈を一意に特定できない問題と非文が生成される問題について述べている．
+  特に，\autoref{kousatu}の考察では，文の解釈を一意に特定できない問題と非文が生成される問題について述べている．
 
   \section{実験の目的}\label{mokuteki}
   自然言語処理において，基本技術の一つになっている構文解析技法について，その原理を学ぶ\cite{jikken3c1}．
@@ -68,7 +68,7 @@
   自然言語処理(natural language processing: NLP)とは，人間が書いたり話したりしたりする文章をコンピュータに処理させることである\cite{jikken3c1}．
   これは，文章の中の単語の品詞を決定するための形態素解析，単語間のつながりを調べる構文解析，単語や文の意味を解析する意味解析および必要な応答文を生成する等の処理を含む\cite{jikken3c1}．
 
-  また，Chomskyによれば，言語は，形式言語を用いて階層化できる（\fig{fig:chomsky}）．
+  また，Chomskyによれば，言語は，形式言語を用いて階層化できる（\autoref{fig:chomsky}）．
   なお，正規文法は有限オートマトンで，文脈自由文法(context-free grammar: CFG)はプッシュダウンオートマトンで，それぞれ認識できる．
   \begin{figure}[htpb]
     \centering
@@ -94,8 +94,8 @@
   \section{実験の結果}\label{kekka}
     \subsection{ネットワーク文法の実験}
       \subsubsection{手による解析}
-      \tab{tab:syntax_network}の文法規則と\tab{tab:dict_girl_network}の単語辞書を用いて
-      ``I saw a girl with a telescope .''を形態素解析した結果を\textbf{図\addtocounter{figure}{1}\thefigure}に示す．
+      \autoref{tab:syntax_network}の文法規則と\autoref{tab:dict_girl_network}の単語辞書を用いて
+      ``I saw a girl with a telescope .''を形態素解析した結果を\textbf{図~\addtocounter{figure}{1}\thefigure}に示す．
       \begin{table}[htb]
         \centering
         \caption{ネットワーク文法の文法規則\cite{jikken3c1}}
@@ -152,7 +152,7 @@
       \end{table}
 
       \subsubsection{プログラムによる解析}
-      文法規則と単語辞書に\tab{tab:syntax_network}, \tab{tab:dict_girl_network}および\tab{tab:dict_child_network}を用い，
+      文法規則と単語辞書に\autoref{tab:syntax_network}, \autoref{tab:dict_girl_network}および\autoref{tab:dict_child_network}を用い，
       作成したプログラムで``I saw a girl with a telescope .''と``the child runs quickly to the large house .''の2文を形態素解析した結果を示す．
       \begin{figure*}[htpb]
         \centering
@@ -166,9 +166,9 @@
 
     \subsection{文脈自由文法の実験}
       \subsubsection{手による解析}
-      \tab{tab:syntax_girl}の文法規則と\tab{tab:dict_girl_network}の単語辞書を用いて
+      \autoref{tab:syntax_girl}の文法規則と\autoref{tab:dict_girl_network}の単語辞書を用いて
       top-down法およびCYK法により構文解析した結果を，
-      それぞれ\textbf{図\addtocounter{figure}{1}\thefigure}, \textbf{図\addtocounter{figure}{1}\thefigure}に示す．
+      それぞれ\textbf{図~\addtocounter{figure}{1}\thefigure}, \textbf{図~\addtocounter{figure}{1}\thefigure}に示す．
       \begin{table*}[htb]
         \centering
         \caption{``I saw a girl with a telescope''の文法規則}
@@ -186,9 +186,9 @@
       \end{table*}
 
       \subsubsection{プログラムによる解析}
-      \tab{tab:syntax_child}の文法規則と\tab{tab:dict_child_network}の単語辞書を用い，
+      \autoref{tab:syntax_child}の文法規則と\autoref{tab:dict_child_network}の単語辞書を用い，
       作成したプログラムで``the child runs quickly to the large house''をCYK法により構文解析した結果得られた構文木とS式をそれぞれ
-      \fig{fig:tree_child}と\fig{fig:result_cyk}に示す．
+      \autoref{fig:tree_child}と\autoref{fig:result_cyk}に示す．
       \begin{table*}[htb]
         \centering
         \caption{``the child runs quickly to the large house''の文法規則}
@@ -222,9 +222,9 @@
         \label{fig:tree_child}      
       \end{figure}
 
-      さらに，\tab{tab:syntax_girl}の文法規則と\tab{tab:dict_girl_network}の単語辞書を用い，
+      さらに，\autoref{tab:syntax_girl}の文法規則と\autoref{tab:dict_girl_network}の単語辞書を用い，
       ``I saw a girl with a telescope''を構文解析した結果得られた構文木とS式をそれぞれ
-      \fig{fig:tree_girl}と\fig{fig:result_cyk}に示す．
+      \autoref{fig:tree_girl}と\autoref{fig:result_cyk}に示す．
       \begin{figure*}[htpb]
         \centering
         %\resizebox{0.9\linewidth}{!}{
@@ -239,11 +239,11 @@
     \subsection{``I saw a girl with a telescope.''の2つの解釈}
     ``I saw a girl with a telescope.''には大きくわけて，以下の2つの意味（解釈）がある:
     \begin{itemize}
-      \item 私は望遠鏡を持った少女に会った．（\fig{fig:tree_girl}）
-      \item 私は望遠鏡で少女を見た．（\fig{fig:tree_telescope}）
+      \item 私は望遠鏡を持った少女に会った．（\autoref{fig:tree_girl}）
+      \item 私は望遠鏡で少女を見た．（\autoref{fig:tree_telescope}）
     \end{itemize}
-    今回の実験の結果得られた解釈は前者だが，\tab{tab:syntax_girl}の文法規則に\(\text{VP} \to \text{VP} + \text{PP}\)を追加することにより，
-    後者の解釈となる構文木（\fig{fig:tree_telescope}）とS式（\fig{fig:result_telescope}）が得られる．
+    今回の実験の結果得られた解釈は前者だが，\autoref{tab:syntax_girl}の文法規則に\(\text{VP} \to \text{VP} + \text{PP}\)を追加することにより，
+    後者の解釈となる構文木（\autoref{fig:tree_telescope}）とS式（\autoref{fig:result_telescope}）が得られる．
     \begin{figure*}[htpb]
       \centering
       \subfloat[私は望遠鏡を持った少女に会った．]{
@@ -276,7 +276,7 @@
       \fbox{
         \BVerbatimInput{result_telescope.txt}
       }
-      \caption{私は望遠鏡で少女を見た（\fig{fig:tree_telescope}）という解釈になるS式（印刷の関係上，出力は改行している．）}
+      \caption{私は望遠鏡で少女を見た（\autoref{fig:tree_telescope}）という解釈になるS式（印刷の関係上，出力は改行している．）}
       \label{fig:result_telescope}
     \end{figure*}
 
@@ -287,14 +287,14 @@
     しかしながら，複数のS式が出力されるということは文の解釈を一意に特定できないということであり，この問題の解決は困難であると考えられる．
 
     \subsection{``Time flies like an arrow.''の解釈}
-    \tab{tab:syntax_flies}の文法規則と\tab{tab:dict_flies}の単語辞書を用い
-    ``Time flies like an arrow''を構文解析した結果，4つの構文木（\fig{fig:tree_flies}）とS式（\fig{fig:result_flies}）が得られた．
+    \autoref{tab:syntax_flies}の文法規則と\autoref{tab:dict_flies}の単語辞書を用い
+    ``Time flies like an arrow''を構文解析した結果，4つの構文木（\autoref{fig:tree_flies}）とS式（\autoref{fig:result_flies}）が得られた．
     これらの解釈はそれぞれ以下である:
     \begin{itemize}
-      \item 時は矢のように過ぎる． $\Rightarrow$ 光陰矢のごとし．（\fig{fig:tree_flies_1}）
-      \item time fly（トキバエ？）たちは矢を好む．（\fig{fig:tree_flies_2}）
-      \item ``矢のようなハエ''たちの速度を測定せよ．（\fig{fig:tree_flies_3}）
-      \item 矢（の速度を測定するとき）のように，ハエたちの速度を測定せよ．（\fig{fig:tree_flies_4}）
+      \item 時は矢のように過ぎる． $\Rightarrow$ 光陰矢のごとし．（\autoref{fig:tree_flies_1}）
+      \item time fly（トキバエ？）たちは矢を好む．（\autoref{fig:tree_flies_2}）
+      \item ``矢のようなハエ''たちの速度を測定せよ．（\autoref{fig:tree_flies_3}）
+      \item 矢（の速度を測定するとき）のように，ハエたちの速度を測定せよ．（\autoref{fig:tree_flies_4}）
     \end{itemize}
     さらに，``Time''が雑誌の名前である可能性も考慮すると，さらに別の解釈も可能である．
 
@@ -392,7 +392,7 @@
     実際には，「光陰矢のごとし」以外の候補はいわゆる非文とみなせるが，候補の絞り込みには別の方法を用いる必要性が示唆される．
 
     \subsection{ネットワーク文法と文脈自由文法の能力の比較}
-    第\ref{gaiyou}章で触れたように，形式文法は階層構造をなしており，文脈自由文法はネットワーク文法を含む．
+    \autoref{gaiyou}で触れたように，形式文法は階層構造をなしており，文脈自由文法はネットワーク文法を含む．
     今回作成したプログラムにおいても，CYK法によるpaserを作成する際も，形態素解析の部分にはネットワーク文法のプログラムを流用したことから，これが確認できる．
 
     ネットワーク文法においても，遷移規則（文法規則）によって簡易的に構文解析ができたが，構文木（S式）まで得るためには文脈自由文法を用いる必要がある．
@@ -468,7 +468,7 @@
     \begin{equation*}
       \verb|print_sexps(&(cells[CELL_LENGTH - 1].type[i]), type_num, 4);|
     \end{equation*}
-    とすれば4文字でのインデントが有効になり，簡易的に木構造を確認できる（\fig{fig:result_indent}）．
+    とすれば4文字でのインデントが有効になり，簡易的に木構造を確認できる（\autoref{fig:result_indent}）．
 
     \begin{figure}[htpb]
       \centering
