@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="104.73267mm"
+   height="67.598572mm"
+   viewBox="0 0 104.73267 67.598572"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   sodipodi:docname="chomsky.svg">
+  <defs
+     id="defs2">
+    <clipPath
+       id="clipPath871"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path869"
+         d="M 0,0 H 2384 V 3370 H 0 Z" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="-513.40465"
+     inkscape:cy="-254.15129"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1440"
+     inkscape:window-height="836"
+     inkscape:window-x="1360"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(102.18608,-38.378773)">
+    <g
+       id="g1813">
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-130.41888,30.596143)"
+         id="g855">
+        <path
+           d="M 80.03,-22.26 H 376.91"
+           style="fill:none;stroke:#000000;stroke-width:0.398;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="path857"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-130.41888,30.596143)"
+         id="g859">
+        <path
+           d="M 80.23,-213.28 V -22.46"
+           style="fill:none;stroke:#000000;stroke-width:0.398;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="path861"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         id="g863"
+         transform="matrix(0.3662186,0,0,-0.3662186,-128.01646,323.41228)">
+        <g
+           id="g865">
+          <g
+             id="g867"
+             clip-path="url(#clipPath871)">
+            <g
+               id="g873"
+               transform="scale(0.229721)">
+              <path
+                 d="m 1518.15,2987.46 c 0,-209.61 -263.11,-379.53 -587.67,-379.53 -324.558,0 -587.671,169.92 -587.671,379.53 0,209.61 263.113,379.54 587.671,379.54 324.56,0 587.67,-169.93 587.67,-379.54"
+                 style="fill:none;stroke:#000000;stroke-width:2.44863009;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:1;stroke-dasharray:none;stroke-opacity:1"
+                 id="path875"
+                 inkscape:connector-curvature="0" />
+              <path
+                 d="m 1297.77,2889.52 c 0,-114.95 -158.96,-208.14 -355.047,-208.14 -196.086,0 -355.051,93.19 -355.051,208.14 0,114.94 158.965,208.13 355.051,208.13 196.087,0 355.047,-93.19 355.047,-208.13"
+                 style="fill:none;stroke:#000000;stroke-width:2.44863009;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:1;stroke-dasharray:none;stroke-opacity:1"
+                 id="path877"
+                 inkscape:connector-curvature="0" />
+              <path
+                 d="m 1420.2,2926.25 c 0,-162.28 -213.77,-293.84 -477.477,-293.84 -263.707,0 -477.485,131.56 -477.485,293.84 0,162.27 213.778,293.83 477.485,293.83 263.707,0 477.477,-131.56 477.477,-293.83"
+                 style="fill:none;stroke:#000000;stroke-width:2.44863009;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:1;stroke-dasharray:none;stroke-opacity:1"
+                 id="path879"
+                 inkscape:connector-curvature="0" />
+              <path
+                 d="m 1224.31,2852.79 c 0,-67.62 -126.07,-122.43 -281.587,-122.43 -155.52,0 -281.594,54.81 -281.594,122.43 0,67.61 126.074,122.43 281.594,122.43 155.517,0 281.587,-54.82 281.587,-122.43"
+                 style="fill:none;stroke:#000000;stroke-width:2.44863009;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:1;stroke-dasharray:none;stroke-opacity:1"
+                 id="path881"
+                 inkscape:connector-curvature="0" />
+              <g
+                 id="g883"
+                 transform="scale(4.35312)">
+                <text
+                   transform="matrix(1,0,0,-1,191.25,655.344)"
+                   style="font-variant:normal;font-size:11.25px;font-family:IPAMincho;-inkscape-font-specification:IPAMincho-EUC-H;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+                   id="text893">
+                  <tspan
+                     x="0 11.25 22.5 33.75"
+                     y="0"
+                     sodipodi:role="line"
+                     id="tspan885">正規文法</tspan>
+                  <tspan
+                     x="-5.6254601 5.6245399 16.87454 28.12454 39.374538 50.624538"
+                     y="-39.374599"
+                     sodipodi:role="line"
+                     id="tspan887">文脈自由文法</tspan>
+                  <tspan
+                     x="-11.25002 -1.9999999e-05 11.24998 22.499981 33.749981 44.999981"
+                     y="-67.500099"
+                     sodipodi:role="line"
+                     id="tspan889">文脈依存文法</tspan>
+                  <tspan
+                     x="-28.125521 -16.875521 -5.6255202 5.6244798 16.874479 28.124479 39.374481 50.624481 61.874481"
+                     y="-95.624702"
+                     sodipodi:role="line"
+                     id="tspan891">チューリングマシン</tspan>
+                </text>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-130.41888,30.596143)"
+         id="g895">
+        <path
+           d="M 376.71,-213.28 V -22.46"
+           style="fill:none;stroke:#000000;stroke-width:0.398;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="path897"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-130.41888,30.596143)"
+         id="g899">
+        <path
+           d="M 80.03,-213.48 H 376.91"
+           style="fill:none;stroke:#000000;stroke-width:0.398;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="path901"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+  </g>
+</svg>

@@ -73,7 +73,7 @@
   \begin{figure}[htpb]
     \centering
     \resizebox{0.9\linewidth}{!}{
-      \includegraphics{chomsky.pdf}
+      \includegraphics{fig/chomsky.pdf}
     }
     \caption{Chomskyの言語階層\cite{jikken3c1}}
     \label{fig:chomsky}
@@ -158,7 +158,7 @@
         \centering
         %\resizebox{0.9\linewidth}{!}{
         \fbox{
-          \BVerbatimInput{result_network.txt}
+          \BVerbatimInput{fig/result_network.txt}
         }
         \caption{プログラムによる形態素解析結果}
         \label{fig:result_network}
@@ -210,13 +210,7 @@
       \begin{figure}[htpb]
         \centering
         \resizebox{0.95\linewidth}{!}{
-          \begin{tikzpicture}
-            \tikzset{frontier/.style={distance from root=180pt}}
-            \Tree [.$\mathrm{S}_{36}$ [.$\mathrm{NP}_{9}$ [.$\mathrm{DET}_{1}$ the ] [.$\mathrm{NOUN}_{2}$ child ] ]
-                  [.$\mathrm{VP}_{33}$ [.$\mathrm{VPa}_{11}$ [.$\mathrm{VERB}_{3}$ runs ] [.$\mathrm{ADV}_{4}$ quickly ] ]
-                  [.$\mathrm{NP}_{26}$ [.$\mathrm{PREP}_{5}$ to ] [.$\mathrm{NP}_{21}$ [.$\mathrm{DET}_{6}$ the ]
-                  [.$\mathrm{NP}_{15}$ [.$\mathrm{ADJ}_{7}$ large ] [.$\mathrm{NOUN}_{8}$ house ] ] ] ] ] ]
-          \end{tikzpicture}
+          \input{fig/tree_child.tex}
         }
         \caption{``the child runs quickly to the large house''の構文木}
         \label{fig:tree_child}      
@@ -229,7 +223,7 @@
         \centering
         %\resizebox{0.9\linewidth}{!}{
         \fbox{
-          \BVerbatimInput{result_cyk.txt}
+          \BVerbatimInput{fig/result_cyk.txt}
         }
         \caption{プログラムによる構文解析結果（印刷の関係上，出力は改行している．）}
         \label{fig:result_cyk}
@@ -249,23 +243,13 @@
       \subfloat[私は望遠鏡を持った少女に会った．]{
         \label{fig:tree_girl}
         \resizebox{0.45\linewidth}{!}{
-          \begin{tikzpicture}
-            \tikzset{frontier/.style={distance from root=180pt}}
-            \Tree [.$\mathrm{S}_{28}$ [.$\mathrm{NP}_{1}$ [.$\mathrm{NOUN}_{1}$ I ] ] [.$\mathrm{VP}_{27}$ [.$\mathrm{VERB}_{2}$ saw ]
-            [.$\mathrm{SS}_{25}$ [.$\mathrm{NP}_{10}$ [.$\mathrm{DET}_{3}$ a ] [.$\mathrm{NOUN}_{4}$ girl ] ]
-            [.$\mathrm{PP}_{18}$ [.$\mathrm{PREP}_{5}$ with ] [.$\mathrm{NP}_{13}$ [.$\mathrm{DET}_{6}$ a ] [.$\mathrm{NOUN}_{7}$ telescope ] ] ] ] ] ]
-          \end{tikzpicture}
+          \input{fig/tree_girl.tex}
         }
       }
       \subfloat[私は望遠鏡で少女を見た．]{
         \label{fig:tree_telescope}
         \resizebox{0.45\linewidth}{!}{
-          \begin{tikzpicture}
-            \tikzset{frontier/.style={distance from root=180pt}}
-            \Tree [.$\mathrm{S}_{28}$ [.$\mathrm{NP}_{1}$ [.$\mathrm{NOUN}_{1}$ I ] ] [.$\mathrm{VP}_{27}$ [.$\mathrm{VP}_{15}$
-                  [.$\mathrm{VERB}_{2}$ saw ] [.$\mathrm{NP}_{10}$ [.$\mathrm{DET}_{3}$ a ] [.$\mathrm{NOUN}_{4}$ girl ] ] ]
-                  [.$\mathrm{PP}_{18}$ [.$\mathrm{PREP}_{5}$ with ] [.$\mathrm{NP}_{13}$ [.$\mathrm{DET}_{6}$ a ] [.$\mathrm{NOUN}_{7}$ telescope ] ] ] ] ]
-          \end{tikzpicture}
+          \input{fig/tree_telescope.tex}
         }
       }
       \caption{``I saw a girl with a telescope''の構文木}
@@ -274,7 +258,7 @@
       \centering
       %\resizebox{0.9\linewidth}{!}{
       \fbox{
-        \BVerbatimInput{result_telescope.txt}
+        \BVerbatimInput{fig/result_telescope.txt}
       }
       \caption{私は望遠鏡で少女を見た（\autoref{fig:tree_telescope}）という解釈になるS式（印刷の関係上，出力は改行している．）}
       \label{fig:result_telescope}
@@ -335,45 +319,25 @@
       \subfloat[光陰矢のごとし．]{
         \label{fig:tree_flies_1}
         %\resizebox{0.45\linewidth}{!}{
-          \begin{tikzpicture}
-            \tikzset{frontier/.style={distance from root=150pt}}
-            \Tree [.$\mathrm{S}_{15}$ [.$\mathrm{NP}_{1}$ [.$\mathrm{NOUN}_{1}$ Time ] ] [.$\mathrm{VP}_{14}$
-                  [.$\mathrm{VP}_{2}$ [.$\mathrm{VERB}_{2}$ flies ] ] [.$\mathrm{PP}_{12}$ [.$\mathrm{PREP}_{3}$ like ]
-                  [.$\mathrm{NP}_{9}$ [.$\mathrm{DET}_{4}$ an ] [.$\mathrm{NOUN}_{5}$ arrow ] ] ] ] ]
-          \end{tikzpicture}
+          \input{fig/tree_flies_1.tex}
         %}
       }
       \subfloat[time fly（トキバエ？）たちは矢を好む．]{
         \label{fig:tree_flies_2}
         %\resizebox{0.45\linewidth}{!}{
-          \begin{tikzpicture}
-            \tikzset{frontier/.style={distance from root=150pt}}
-            \Tree [.$\mathrm{S}_{15}$ [.$\mathrm{NP}_{6}$ [.$\mathrm{NOUN}_{1}$ Time ] [.$\mathrm{NP}_{2}$
-                  [.$\mathrm{NOUN}_{2}$ flies ] ] ] [.$\mathrm{VP}_{12}$ [.$\mathrm{VERB}_{3}$ like ]
-                  [.$\mathrm{NP}_{9}$ [.$\mathrm{DET}_{4}$ an ] [.$\mathrm{NOUN}_{5}$ arrow ] ] ] ]
-          \end{tikzpicture}
+          \input{fig/tree_flies_2.tex}
         %}
       } \\
       \subfloat[``矢のようなハエ''たちの速度を測定せよ．]{
         \label{fig:tree_flies_3}
         %\resizebox{0.45\linewidth}{!}{
-          \begin{tikzpicture}
-            \tikzset{frontier/.style={distance from root=180pt}}
-            \Tree [.$\mathrm{S}_{15}$ [.$\mathrm{VP}_{15}$ [.$\mathrm{VERB}_{1}$ Time ] [.$\mathrm{NP}_{14}$
-                  [.$\mathrm{NP}_{2}$ [.$\mathrm{NOUN}_{2}$ flies ] ] [.$\mathrm{PP}_{12}$ [.$\mathrm{PREP}_{3}$ like ]
-                  [.$\mathrm{NP}_{9}$ [.$\mathrm{DET}_{4}$ an ] [.$\mathrm{NOUN}_{5}$ arrow ] ] ] ] ] ]
-          \end{tikzpicture}
+          \input{fig/tree_flies_3.tex}
         %}
       }
       \subfloat[矢（の速度を測定するとき）のように，ハエたちの速度を測定せよ．]{
         \label{fig:tree_flies_4}
         %\resizebox{0.45\linewidth}{!}{
-          \begin{tikzpicture}
-            \tikzset{frontier/.style={distance from root=180pt}}
-            \Tree [.$\mathrm{S}_{15}$ [.$\mathrm{VP}_{15}$ [.$\mathrm{VP}_{6}$ [.$\mathrm{VERB}_{1}$ Time ] [.$\mathrm{NP}_{2}$
-                  [.$\mathrm{NOUN}_{2}$ flies ] ] ] [.$\mathrm{PP}_{12}$ [.$\mathrm{PREP}_{3}$ like ]
-                  [.$\mathrm{NP}_{9}$ [.$\mathrm{DET}_{4}$ an ] [.$\mathrm{NOUN}_{5}$ arrow ] ] ] ] ]
-          \end{tikzpicture}
+          \input{fig/tree_flies_4.tex}
         %}
       }
       \caption{``Time flies like an arrow''の構文木}
@@ -383,7 +347,7 @@
       \centering
       %\resizebox{0.9\linewidth}{!}{
       \fbox{
-        \BVerbatimInput{result_flies.txt}
+        \BVerbatimInput{fig/result_flies.txt}
       }
       \caption{``Time flies like an arrow''のS式（印刷の関係上，出力は改行している．）}
       \label{fig:result_flies}
@@ -474,7 +438,7 @@
       \centering
       %\resizebox{0.9\linewidth}{!}{
       \fbox{
-        \BVerbatimInput{result_indent.txt}
+        \BVerbatimInput{fig/result_indent.txt}
       }
       \caption{インデント機能を有効にした場合の出力}
       \label{fig:result_indent}
