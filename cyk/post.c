@@ -8,7 +8,7 @@ bool type_analyzer(WORD *words, const WORD *dict) {
   bool typeFound = false;
   bool noUnknown = true;
 
-  int array_size = DEFAULT_CAPACITY_OF_ARRAY;
+  int array_size = DEFAULT_LENGTH_OF_ARRAY;
   char **type = malloc(sizeof(char *) * array_size);
   int type_index = 0;
   for (i = 0; words[i].word != DUMMY.word; i++) {

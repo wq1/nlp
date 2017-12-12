@@ -9,7 +9,7 @@
 #define true  1
 #define false 0
 
-#define DEFAULT_CAPACITY_OF_ARRAY 64
+#define DEFAULT_LENGTH_OF_ARRAY 64
 
 typedef struct {
   char *word;

@@ -76,7 +76,7 @@ CELL* syntax_analyzer(const WORD *words, const SYNTAX *syntax) {
   int l, m, n; // for loop
   int column = 0;
   index = 0;
-  int array_size = DEFAULT_CAPACITY_OF_ARRAY;
+  int array_size = DEFAULT_LENGTH_OF_ARRAY;
   TYPE *type = malloc(sizeof(TYPE) * array_size);
   for (i = 0; i < array_size; i++) { // init type[] with DUMMY_CELL.type[0]
     memcpy(&type[i], &DUMMY_CELL.type[0], sizeof(TYPE));
