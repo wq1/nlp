@@ -431,6 +431,12 @@
     \label{fig:network}
   \end{figure}
 
+    \subsection{一文の長さの制限変更について}
+    初期状態では1文の長さは1023文字に制限されているが，再コンパイルの必要なく，
+    第3引数に$n$を渡すことで\(n - 1\)文字までの制限に変更することができる．
+
+    これは文脈自由文法のプログラムにおいても同様である．
+
   \clearpage
   \section{文脈自由文法のプログラム}
   \lstinputlisting[caption=Makefile, label=Makefile]{cyk/Makefile}
