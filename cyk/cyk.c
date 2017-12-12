@@ -28,6 +28,28 @@ int getIndex(const int x, const int y) {
 }
 
 
+bool setNewArrayIfNeeded(TYPE **type, int *type_index, int *array_size, const int *k) {
+  if (*type_index >= (*array_size - 1)) { // -1?: last element is preserved for dummy element.
+    *array_size *= 2; // new array will be expanded.
+    fprintf(stderr, "[DEBUG]: cells[index].type is full. increasing array size to %d elements.\n", *array_size);
+    if (*k == *type_index) {
+      free(*type);
+    }
+    *type = malloc(sizeof(TYPE) * *array_size);
+
+    int i;
+    for (i = 0; i < *array_size; i++) { // init type[] with DUMMY_CELL.type[0]
+      memcpy(&(*type)[i], &DUMMY_CELL.type[0], sizeof(TYPE));
+    }
+
+    *type_index = 0;
+    return true;
+  } else {
+    return false;
+  }
+}
+
+
 CELL* syntax_analyzer(const WORD *words, const SYNTAX *syntax) {
   fprintf(stderr, "[INFO]: CYK parser started.\n");
 
@@ -54,22 +76,34 @@ CELL* syntax_analyzer(const WORD *words, const SYNTAX *syntax) {
   int l, m, n; // for loop
   int column = 0;
   index = 0;
+  int array_size = DEFAULT_CAPACITY_OF_ARRAY;
+  TYPE *type = malloc(sizeof(TYPE) * array_size);
+  for (i = 0; i < array_size; i++) { // init type[] with DUMMY_CELL.type[0]
+    memcpy(&type[i], &DUMMY_CELL.type[0], sizeof(TYPE));
+  }
+  int type_index = 0;
   for (i = 0, j = column; i < WORDAGE && j < WORDAGE; /* */) {
+    outer: // outer loop
+    cells[index].type = &type[type_index];
+    if (type_index == 0) {
+      cells[index].type_is_new_array = true;
+    }
     k = 0;
 
     // (cells[index].word <= words[index].word)
     if (index < WORDAGE) {
       cells[index].word = words[index].word;
       for (i = 0; words[index].type[i] != DUMMY.type[0]; i++) {
-        if (k >= MAX_TYPE) {
-          fprintf(stderr, "\x1b[31m[WARN]: cells[%d].type[MAX_TYPE] overflow (the result may be wrong)\x1b[39m\n", index);
-          break;
+        if (setNewArrayIfNeeded(&type, &type_index, &array_size, &k) == true) {
+          goto outer; // continue from outer loop
         }
+
         cells[index].type[k].index = k;
         cells[index].type[k].type = words[index].type[i];
         cells[index].type[k].cell = &cells[index];
         fprintf(stderr, "[DEBUG]: %s%d \"%s\"\n", cells[index].type[k].type, cells[index].index + 1, cells[index].word);
         k++;
+        type_index++;
       }
     }
 
@@ -81,14 +115,14 @@ CELL* syntax_analyzer(const WORD *words, const SYNTAX *syntax) {
       b = getIndex(u, v);
       // fprintf(stderr, "[DEBUG]: %d: (%d, %d) = %d, (%d, %d) = %d\n", index+1, p+1, q+1, a+1, u+1, v+1, b+1);
 
-      for (l = 0; cells[a].type[l].type != DUMMY_CELL.type[l].type; l++) {
-        for (m = 0; cells[b].type[m].type != DUMMY_CELL.type[m].type; m++) {
+      for (l = 0; cells[a].type[l].type != DUMMY_CELL.type[0].type; l++) {
+        for (m = 0; cells[b].type[m].type != DUMMY_CELL.type[0].type; m++) {
           for (n = 0; syntax[n].lhs != DUMMY_SYNTAX.lhs; n++) {
             if (strcmp(cells[a].type[l].type, syntax[n].rhs1) == 0 && strcmp(cells[b].type[m].type, syntax[n].rhs2) == 0) {
-              if (k >= MAX_TYPE) {
-                fprintf(stderr, "\x1b[31m[WARN]: cells[%d].type[MAX_TYPE] overflow (the result may be wrong)\x1b[39m\n", index);
-                break;
+              if (setNewArrayIfNeeded(&type, &type_index, &array_size, &k) == true) {
+                goto outer; // continue from outer loop
               }
+
               cells[index].type[k].index = k;
               cells[index].type[k].type = syntax[n].lhs;
               cells[index].type[k].cell = &cells[index];
@@ -100,6 +134,7 @@ CELL* syntax_analyzer(const WORD *words, const SYNTAX *syntax) {
                 cells[index].type[k].prev_right_type->type, cells[index].type[k].prev_right_type->cell->index + 1
               );
               k++;
+              type_index++;
             }
           }
         }
@@ -107,13 +142,13 @@ CELL* syntax_analyzer(const WORD *words, const SYNTAX *syntax) {
     }
 
     // self-referencing (ex.) VP -> VERB; S -> VP
-    for (l = 0; cells[index].type[l].type != DUMMY_CELL.type[l].type; l++) {
+    for (l = 0; cells[index].type[l].type != DUMMY_CELL.type[0].type; l++) {
       for (n = 0; (syntax[n].lhs != DUMMY_SYNTAX.lhs); n++) {
         if (strcmp(cells[index].type[l].type, syntax[n].rhs1) == 0 && syntax[n].rhs2 == DUMMY_SYNTAX.rhs2) {
-          if (k >= MAX_TYPE) {
-            fprintf(stderr, "\x1b[31m[WARN]: cells[%d].type[MAX_TYPE] overflow (the result may be wrong)\x1b[39m\n", index);
-            break;
+          if (setNewArrayIfNeeded(&type, &type_index, &array_size, &k) == true) {
+            goto outer; // continue from outer loop
           }
+
           cells[index].type[k].index = k;
           cells[index].type[k].type = syntax[n].lhs;
           cells[index].type[k].cell = &cells[index];
@@ -123,6 +158,7 @@ CELL* syntax_analyzer(const WORD *words, const SYNTAX *syntax) {
             cells[index].type[k].prev_left_type->type, cells[index].type[k].prev_left_type->cell->index + 1
           );
           k++;
+          type_index++;
         }
       }
     }
@@ -134,6 +170,18 @@ CELL* syntax_analyzer(const WORD *words, const SYNTAX *syntax) {
       i++;
       j++;
     }
+
+    if (k == 0) { // when k == 0, the cell is empty.
+      if (type_index == 0) { // type_index == 0 means the head of type[].
+        type_index++;
+      } else {
+        cells[index].type--; // cells[index].type points last dummy element of previous cell (cells[index - 1])
+      }                      //   to save memory resouce
+    } else {
+      type_index++;  // make last element dummy
+    }
+
+    setNewArrayIfNeeded(&type, &type_index, &array_size, &k);
     index++;
   }
 

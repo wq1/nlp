@@ -9,10 +9,7 @@
 #define true  1
 #define false 0
 
-#define MAX_TYPE 10
-// parser can find up to MAX_TYPE trees
-
-#define DEFAULT_CAPACITY_OF_ARRAY 16
+#define DEFAULT_CAPACITY_OF_ARRAY 64
 
 typedef struct {
   char *word;
@@ -37,7 +34,8 @@ typedef struct type {
 typedef struct cell {
   int index;
   char *word;
-  TYPE type[MAX_TYPE + 1]; // +1?: last element is dummy
+  TYPE *type;
+  bool type_is_new_array;
 } CELL;
 
 extern WORD DUMMY;

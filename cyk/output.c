@@ -2,7 +2,7 @@
 
 
 void _print_sexps(const TYPE *type, int *word_num, int *type_num, int indent, int depth) {
-  if (type->type == DUMMY_CELL.type[type->index].type) {
+  if (type->type == DUMMY_CELL.type[0].type) {
     return;
   }
 
@@ -18,7 +18,7 @@ void _print_sexps(const TYPE *type, int *word_num, int *type_num, int indent, in
   printf("(%s%d", type->type, (type->cell)->index + 1);
 
   if ((type->cell)->word != DUMMY_CELL.word) {
-    if (type->prev_left_type == &DUMMY_CELL.type[(type->prev_left_type)->index]) {
+    if (type->prev_left_type == &DUMMY_CELL.type[0]) {
       printf(" \"%s\"", (type->cell)->word);
       if (type_num != NULL) {
         //fprintf(stderr, "%d, ", type->index);

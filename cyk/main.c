@@ -7,8 +7,6 @@ CELL DUMMY_CELL;
 
 
 int main(int argc, char **argv) {
-  fprintf(stderr, "[INFO]: This CYK parser can find up to %d trees (determined at compile time)\n", MAX_TYPE);
-
   size_t max_line_length;
   if (argc > 3) {
     max_line_length = strtoul(argv[3], NULL, 10);
@@ -24,18 +22,21 @@ int main(int argc, char **argv) {
   int i;
   DUMMY.word = "";
   DUMMY.type = (char **)"?";
+  DUMMY.type_is_new_array = false;
   DUMMY_SYNTAX.lhs = "";
   DUMMY_SYNTAX.rhs1 = "";
   DUMMY_SYNTAX.rhs2 = "";
+
+  TYPE dummy_type;
   DUMMY_CELL.index = -1;
-  DUMMY_CELL.word = "";
-  for (i = 0; i <= MAX_TYPE; i++) { // type[MAX_TYPE + 1] is dummy
-    DUMMY_CELL.type[i].index = i;
-    DUMMY_CELL.type[i].type = "";
-    DUMMY_CELL.type[i].cell = &DUMMY_CELL;
-    DUMMY_CELL.type[i].prev_left_type = &DUMMY_CELL.type[i];
-    DUMMY_CELL.type[i].prev_right_type = &DUMMY_CELL.type[i];
-  }
+  DUMMY_CELL.word = DUMMY.word;
+  DUMMY_CELL.type = &dummy_type;
+  DUMMY_CELL.type_is_new_array = false;
+  dummy_type.index = -1;
+  dummy_type.type = DUMMY.type[0];
+  dummy_type.cell = &DUMMY_CELL;
+  dummy_type.prev_left_type = &dummy_type;
+  dummy_type.prev_right_type = &dummy_type;
 
   WORD *dict = build_dict(argv[1]);
   SYNTAX *syntax = build_syntax(argv[2]);
@@ -56,7 +57,7 @@ int main(int argc, char **argv) {
     if (typeOK == true) {
       cells = syntax_analyzer(words, syntax);
       if (cells != NULL) {
-        for (i = 0; cells[CELL_LENGTH - 1].type[i].type != DUMMY_CELL.type[i].type; i++) {
+        for (i = 0; cells[CELL_LENGTH - 1].type[i].type != DUMMY_CELL.type[0].type; i++) {
           if (strcmp(cells[CELL_LENGTH - 1].type[i].type, "S") == 0) {
             sentenceOK = true;
             print_sexps(&(cells[CELL_LENGTH - 1].type[i]), type_num, 0);
@@ -79,6 +80,11 @@ int main(int argc, char **argv) {
       fprintf(stderr, "\x1b[31m[WARN]: Parsing aborted.\x1b[39m\n");
     }
 
+    for (i = 0; cells[i].word != DUMMY_CELL.word; i++) {
+      if (cells[i].type_is_new_array == true) {
+        free(cells[i].type);
+      }
+    }
     free(cells);
     free(type_num);
     for (i = 0; words[i].word != DUMMY.word; i++) {
