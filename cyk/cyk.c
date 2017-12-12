@@ -176,7 +176,7 @@ CELL* syntax_analyzer(const WORD *words, const SYNTAX *syntax) {
         type_index++;
       } else {
         cells[index].type--; // cells[index].type points last dummy element of previous cell (cells[index - 1])
-      }                      //   to save memory resouce
+      }                      //   to save memory resource
     } else {
       type_index++;  // make last element dummy
     }
