@@ -47,6 +47,13 @@ int main(int argc, char **argv) {
   while (fgets(sentence, max_line_length, stdin) != NULL) {
     fprintf(stderr, "[INFO]: Parsing started.\n");
     words = sentence_splitter(sentence);
+    if (words == &DUMMY) {
+      fprintf(stderr, "\x1b[31m[WARN]: Parsing stopped.\x1b[39m\n");
+      fprintf(stderr, "\x1b[31m[WARN]: There is nothing to process. (maybe empty line?)\x1b[39m\n");
+      fprintf(stderr, "[INFO]: continue...\n");
+      words = NULL;
+      continue;
+    }
 
     bool typeOK = type_analyzer(words, dict);
     // print_words(words, max_line_length, NULL);

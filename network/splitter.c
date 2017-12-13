@@ -10,6 +10,9 @@ WORD* sentence_splitter(char *sentence) {
   for (ptr = sentence; sscanf(ptr, " %*s%n", &n[1]) != EOF; ptr += n[1]) {
     wordage++;
   }
+  if (wordage == 0) {
+    return &DUMMY;
+  }
 
   // memory allocation
   WORD *words = malloc(sizeof(WORD) * (wordage + 2));
